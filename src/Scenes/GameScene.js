@@ -5,6 +5,7 @@ import sky from '../assets/game/sky.png';
 import background from '../assets/game/background.jpg';
 import woof from '../assets/game/woof.png';
 import dragon from '../assets/game/dragonorrange.png';
+import config from '../Config/config';
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -29,6 +30,10 @@ export default class GameScene extends Phaser.Scene {
     this.dragon1 = this.add.sprite(100, 100, 'dragon')
     this.dragon2 = this.add.sprite(32, 32, 'dragon')
     this.dragon3 = this.add.sprite(150, 150, 'dragon')
+
+    // const gameW = this.sys.config.height;
+// 
+    // console.log(gameW)
   }
 
   update() {
@@ -39,5 +44,15 @@ export default class GameScene extends Phaser.Scene {
 
   moveDragon(dragon, speed) {
     dragon.y += speed;
+    if (dragon.y > config.height) {
+      this.resetDragonPos(dragon);
+    }
+  }
+
+  resetDragonPos(dragon){
+    dragon.y = 0;
+    
+    var randomX = Phaser.Math.Between(0, config.width);
+    dragon.x = randomX;
   }
 };
