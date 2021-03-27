@@ -5,6 +5,8 @@ import sky from '../assets/game/sky.png';
 import background from '../assets/game/background.jpg';
 import woof from '../assets/game/woof.png';
 import dragon from '../assets/game/dragonorrange.png';
+import ship2 from '../assets/game/ship2.png';
+import explosion from '../assets/game/explosion.png';
 import config from '../Config/config';
 
 export default class GameScene extends Phaser.Scene {
@@ -18,6 +20,10 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('platform', platform);
     this.load.image('background', background);
     this.load.image('dragon', dragon);
+    this.load.spritesheet('ship2', ship2, {
+      frameWidth: 16,
+      frameHeight: 16
+    });
     this.load.image('woof', woof);
   }
 
@@ -27,6 +33,7 @@ export default class GameScene extends Phaser.Scene {
     bg.setOrigin(0,0);
 
     this.woof = this.add.sprite(64, 64, 'woof')
+    this.ship2 = this.add.sprite(140, 180, 'ship2')
     this.dragon1 = this.add.sprite(100, 100, 'dragon')
     this.dragon2 = this.add.sprite(32, 32, 'dragon')
     this.dragon3 = this.add.sprite(150, 150, 'dragon')
@@ -40,6 +47,7 @@ export default class GameScene extends Phaser.Scene {
     this.moveDragon(this.dragon1, 1);
     this.moveDragon(this.dragon2, 2);
     this.moveDragon(this.dragon3, 3);
+    this.moveDragon(this.ship2, 3);
   }
 
   moveDragon(dragon, speed) {
