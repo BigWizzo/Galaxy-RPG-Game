@@ -52,7 +52,10 @@ export default class GameScene extends Phaser.Scene {
 
     this.anims.create({
       key: "woof_anim",
-      frames: this.anims.generateFrameNumbers("woof"),
+      frames: this.anims.generateFrameNumbers("woof", {
+        start: 2,
+        end: 3
+      }),
       frameRate: 20,
       repeat: -1
     });
