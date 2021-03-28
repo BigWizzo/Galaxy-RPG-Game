@@ -126,7 +126,8 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
 
-    this.add.text(20, 20, "Ships Destroyed", {
+    this.score = 0;
+    this.scoreLabel = this.add.text(20, 20, "Ships Destroyed", {
       font: "25px Arial",
       fill: "yellow"
     });
@@ -136,6 +137,8 @@ export default class GameScene extends Phaser.Scene {
   pickPowerUp(woof, powerUp) {
     // make it inactive and hide it
     powerUp.disableBody(true, true);
+    this.score += 1;
+    this.scoreLabel.text = "Ships Destroyed " + this.score;
   }
 
   update() {
