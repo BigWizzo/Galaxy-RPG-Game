@@ -125,6 +125,12 @@ export default class GameScene extends Phaser.Scene {
     this.woof.setCollideWorldBounds(true);
 
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
+
+    this.add.text(20, 20, "Ships Destroyed", {
+      font: "25px Arial",
+      fill: "yellow"
+    });
+
   }
 
   pickPowerUp(woof, powerUp) {
