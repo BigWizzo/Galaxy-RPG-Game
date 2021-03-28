@@ -10,6 +10,13 @@ import power from '../assets/game/power.png';
 import explosion from '../assets/game/explosion.png';
 import config from '../Config/config';
 
+const gameSettings = {
+  playerSpeed: 200,
+  maxPowerups: 2,
+  powerUpVel: 50,
+}
+
+
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
@@ -44,24 +51,11 @@ export default class GameScene extends Phaser.Scene {
     let bg = this.add.sprite(0, 0, 'background');
     bg.setOrigin(0,0);
 
-    this.woof = this.add.sprite(64, 64, 'woof')
+    // this.woof = this.add.sprite(64, 64, 'woof')
     // this.ship2 = this.add.sprite(140, 180, 'ship2')
     // this.dragon1 = this.add.sprite(100, 100, 'dragon')
     // this.dragon2 = this.add.sprite(32, 32, 'dragon')
     // this.dragon3 = this.add.sprite(150, 150, 'dragon')
-
-    this.anims.create({
-      key: "woof_anim",
-      frames: this.anims.generateFrameNumbers("woof", {
-        start: 2,
-        end: 3
-      }),
-      frameRate: 20,
-      repeat: -1
-    });
-
-    this.woof.play("woof_anim");
-
     this.anims.create({
       key: "explode",
       frames: this.anims.generateFrameNumbers("explosion"),
@@ -93,11 +87,11 @@ export default class GameScene extends Phaser.Scene {
 
     this.powerUps = this.physics.add.group();
 
-    var maxObjects = 4;
+    var maxObjects = 8;
     for (var i = 0; i <= maxObjects; i++) {
       var powerUp = this.physics.add.sprite(16, 16, "power-up");
       this.powerUps.add(powerUp);
-       powerUp.setRandomPosition(0, 0, game.config.width, game.config.height);
+       powerUp.setRandomPosition(0, 0, config.width, config.height);
 
       // set random animation
       if (Math.random() > 0.5) {
@@ -112,8 +106,27 @@ export default class GameScene extends Phaser.Scene {
       powerUp.setCollideWorldBounds(true);
       // 3.3
      powerUp.setBounce(1);
-
     }
+
+    this.anims.create({
+      key: "woof_anim",
+      frames: this.anims.generateFrameNumbers("woof", {
+        start: 0,
+        end: 1
+      }),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.woof = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, "woof");
+    this.woof.play("woof_anim");
+
+    this.cursorKeys = this.input.keyboard.createCursorKeys();
+    this.woof.setCollideWorldBounds(true);
+
+    this.physics.add.collider(this.woof, this.powerUps, function(woof, powerUp) {
+      powerUp.destroy();
+    });
   }
 
   update() {
@@ -121,6 +134,24 @@ export default class GameScene extends Phaser.Scene {
     // this.moveDragon(this.dragon2, 2);
     // this.moveDragon(this.dragon3, 3);
     // this.moveDragon(this.ship2, 3);
+
+    this.moveWoofManager();
+  }
+
+  moveWoofManager(){
+    this.woof.setVelocity(0);
+
+    if(this.cursorKeys.left.isDown){
+      this.woof.setVelocityX(-200);
+    }else if(this.cursorKeys.right.isDown){
+      this.woof.setVelocityX(200);
+    }
+
+    if(this.cursorKeys.up.isDown){
+      this.woof.setVelocityY(-200);
+    }else if(this.cursorKeys.down.isDown){
+      this.woof.setVelocityY(200);
+    }
   }
 
   moveDragon(dragon, speed) {
