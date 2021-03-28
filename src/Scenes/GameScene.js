@@ -51,6 +51,15 @@ export default class GameScene extends Phaser.Scene {
     // this.dragon3 = this.add.sprite(150, 150, 'dragon')
 
     this.anims.create({
+      key: "woof_anim",
+      frames: this.anims.generateFrameNumbers("woof"),
+      frameRate: 20,
+      repeat: -1
+    });
+
+    this.woof.play("woof_anim");
+
+    this.anims.create({
       key: "explode",
       frames: this.anims.generateFrameNumbers("explosion"),
       frameRate: 20,
