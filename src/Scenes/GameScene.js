@@ -124,9 +124,12 @@ export default class GameScene extends Phaser.Scene {
     this.cursorKeys = this.input.keyboard.createCursorKeys();
     this.woof.setCollideWorldBounds(true);
 
-    this.physics.add.collider(this.woof, this.powerUps, function(woof, powerUp) {
-      powerUp.destroy();
-    });
+    this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
+  }
+
+  pickPowerUp(woof, powerUp) {
+    // make it inactive and hide it
+    powerUp.disableBody(true, true);
   }
 
   update() {
