@@ -48,8 +48,10 @@ export default class GameScene extends Phaser.Scene {
 
   create () {
     // this.physics.startSystem(Phaser.Physics.ARCADE)
-    let bg = this.add.sprite(0, 0, 'background');
-    bg.setOrigin(0,0);
+
+    // let bg = this.add.sprite(0, 0, 'background');
+    this.bg = this.add.tileSprite(0, 0, config.width, config.height, "background");
+    this.bg.setOrigin(0,0);
 
     // this.woof = this.add.sprite(64, 64, 'woof')
     // this.ship2 = this.add.sprite(140, 180, 'ship2')
@@ -146,8 +148,8 @@ export default class GameScene extends Phaser.Scene {
     // this.moveDragon(this.dragon2, 2);
     // this.moveDragon(this.dragon3, 3);
     // this.moveDragon(this.ship2, 3);
-
     this.moveWoofManager();
+    this.bg.tilePositionY -= 0.2;
   }
 
   moveWoofManager(){
