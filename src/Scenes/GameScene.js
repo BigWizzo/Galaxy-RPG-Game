@@ -1,7 +1,7 @@
-import 'phaser';
-import diamond from '../assets/game/diamond.png';
-import platform from '../assets/game/platform.png';
-import sky from '../assets/game/sky.png';
+// import 'phaser';
+// import diamond from '../assets/game/diamond.png';
+// import platform from '../assets/game/platform.png';
+// import sky from '../assets/game/sky.png';
 import background from '../assets/game/background.jpg';
 import woof from '../assets/game/woof.png';
 // import dragon from '../assets/game/dragonorrange.png';
@@ -26,8 +26,8 @@ export default class GameScene extends Phaser.Scene {
 
   preload() {
     // load images
-    this.load.image('diamond', diamond);
-    this.load.image('platform', platform);
+    // this.load.image('diamond', diamond);
+    // this.load.image('platform', platform);
     this.load.image('background', background);
     // this.load.image('dragon', dragon);
     // this.load.spritesheet('ship2', ship2, {
@@ -107,7 +107,7 @@ export default class GameScene extends Phaser.Scene {
     this.powerUps = this.physics.add.group();
     this.dangers = this.physics.add.group();
 
-    const maxPowers = 8;
+    const maxPowers = 10;
     for (var i = 0; i <= maxPowers; i++) {
       const powerUp = this.physics.add.sprite(16, 16, 'power-up');
 
@@ -129,7 +129,7 @@ export default class GameScene extends Phaser.Scene {
       powerUp.setBounce(1);
     }
 
-    const maxDangers = 4;
+    const maxDangers = 3;
     for (var i = 0; i <= maxDangers; i++) {
       const danger = this.physics.add.sprite(16, 16, 'danger');
 
@@ -181,7 +181,7 @@ export default class GameScene extends Phaser.Scene {
     powerUp.disableBody(true, true);
     this.score += 1;
     this.scoreLabel.text = `Ships Destroyed ${this.score}`;
-    if (this.score === 8) {
+    if (this.score === 11) {
       this.physics.pause();
       this.woof.setTint(0xf8f8ff);
       this.gameWonText = this.add.text(400, 300, 'You Won Click to see MENU', {
