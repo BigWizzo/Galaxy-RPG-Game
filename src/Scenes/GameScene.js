@@ -166,6 +166,7 @@ export default class GameScene extends Phaser.Scene {
     // this.woof.add('down', [3], 10, true)
 
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
+    this.physics.add.overlap(this.woof, this.dangers, this.pickDanger, null, this);
 
     this.score = 0;
     this.scoreLabel = this.add.text(20, 20, "Ships Destroyed", {
@@ -178,6 +179,13 @@ export default class GameScene extends Phaser.Scene {
   pickPowerUp(woof, powerUp) {
     // make it inactive and hide it
     powerUp.disableBody(true, true);
+    this.score += 1;
+    this.scoreLabel.text = "Ships Destroyed " + this.score;
+  }
+
+  pickDanger(woof, danger) {
+    // make it inactive and hide it
+    danger.disableBody(true, true);
     this.score += 1;
     this.scoreLabel.text = "Ships Destroyed " + this.score;
   }
