@@ -7,6 +7,7 @@ import woof from '../assets/game/woof.png';
 // import dragon from '../assets/game/dragonorrange.png';
 // import ship2 from '../assets/game/ship2.png';
 import power from '../assets/game/power.png';
+import danger from '../assets/game/danger.png';
 import explosion from '../assets/game/explosion.png';
 import config from '../Config/config';
 
@@ -35,6 +36,10 @@ export default class GameScene extends Phaser.Scene {
     this.load.spritesheet('power', power, {
       frameWidth: 16,
       frameHeight: 16
+    });
+    this.load.spritesheet('danger', danger, {
+      frameWidth: 64,
+      frameHeight: 64
     });
     this.load.spritesheet('woof', woof, {
       frameWidth: 64,
@@ -85,43 +90,72 @@ export default class GameScene extends Phaser.Scene {
       repeat: -1
     });
 
+    this.anims.create({
+      key: "green",
+      frames: this.anims.generateFrameNumbers("danger", {
+        start: 0,
+        end: 1
+      }),
+      frameRate: 20,
+      repeat: -1
+    });
+    this.anims.create({
+      key: "blue",
+      frames: this.anims.generateFrameNumbers("danger", {
+        start: 2,
+        end: 3
+      }),
+      frameRate: 20,
+      repeat: -1
+    });
+
     this.physics.world.setBoundsCollision();
 
     this.powerUps = this.physics.add.group();
+    this.dangers = this.physics.add.group();
 
     var maxObjects = 8;
     for (var i = 0; i <= maxObjects; i++) {
       var powerUp = this.physics.add.sprite(16, 16, "power-up");
+      var danger = this.physics.add.sprite(16, 16, "danger");
+
       this.powerUps.add(powerUp);
-       powerUp.setRandomPosition(0, 0, config.width, config.height);
+      this.dangers.add(danger);
+      powerUp.setRandomPosition(0, 0, config.width, config.height);
+      danger.setRandomPosition(0, 0, config.width, config.height);
 
       // set random animation
       if (Math.random() > 0.5) {
         powerUp.play("red");
+        danger.play("green");
       } else {
         powerUp.play("gray");
+        danger.play("blue");
       }
 
       // setVelocity
       powerUp.setVelocity(50, 50);
+      danger.setVelocity(50, 50);
       // 3.2
       powerUp.setCollideWorldBounds(true);
+      danger.setCollideWorldBounds(true);
       // 3.3
-     powerUp.setBounce(1);
+      powerUp.setBounce(1);
+      danger.setBounce(1);
     }
 
-    // this.anims.create({
-      // key: "woof_anim",
-      // frames: this.anims.generateFrameNumbers("woof", {
-        // start: 4,
-        // end: 5
-      // }),
-      // frameRate: 20,
-      // repeat: -1
-    // });
+    this.anims.create({
+      key: "woof_anim",
+      frames: this.anims.generateFrameNumbers("woof", {
+        start: 0,
+        end: 1
+      }),
+      frameRate: 20,
+      repeat: -1
+    });
 
     this.woof = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, "woof");
-    // this.woof.play("woof_anim");
+    this.woof.play("woof_anim");
 
     this.cursorKeys = this.input.keyboard.createCursorKeys();
     this.woof.setCollideWorldBounds(true);
