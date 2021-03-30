@@ -110,18 +110,18 @@ export default class GameScene extends Phaser.Scene {
      powerUp.setBounce(1);
     }
 
-    this.anims.create({
-      key: "woof_anim",
-      frames: this.anims.generateFrameNumbers("woof", {
-        start: 4,
-        end: 5
-      }),
-      frameRate: 20,
-      repeat: -1
-    });
+    // this.anims.create({
+      // key: "woof_anim",
+      // frames: this.anims.generateFrameNumbers("woof", {
+        // start: 4,
+        // end: 5
+      // }),
+      // frameRate: 20,
+      // repeat: -1
+    // });
 
     this.woof = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, "woof");
-    this.woof.play("woof_anim");
+    // this.woof.play("woof_anim");
 
     this.cursorKeys = this.input.keyboard.createCursorKeys();
     this.woof.setCollideWorldBounds(true);
@@ -156,15 +156,15 @@ export default class GameScene extends Phaser.Scene {
     this.woof.setVelocity(0);
 
     if(this.cursorKeys.left.isDown){
-      this.woof.setVelocityX(-200);
+      this.woof.setVelocityX(-50);
     }else if(this.cursorKeys.right.isDown){
-      this.woof.setVelocityX(200);
+      this.woof.setVelocityX(50);
     }
 
     if(this.cursorKeys.up.isDown){
-      this.woof.setVelocityY(-200);
+      this.woof.setVelocityY(-50);
     }else if(this.cursorKeys.down.isDown){
-      this.woof.setVelocityY(200);
+      this.woof.setVelocityY(50);
     }
   }
 
