@@ -182,7 +182,7 @@ export default class GameScene extends Phaser.Scene {
     powerUp.disableBody(true, true);
     this.score += 1;
     this.scoreLabel.text = "Ships Destroyed " + this.score;
-    if (this.score === 5) {
+    if (this.score === 8) {
       this.physics.pause();
       this.woof.setTint(0xf8f8ff)
       this.gameWonText = this.add.text(400, 300, "You Won Click to see MENU", {
