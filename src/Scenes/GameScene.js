@@ -126,6 +126,11 @@ export default class GameScene extends Phaser.Scene {
     this.cursorKeys = this.input.keyboard.createCursorKeys();
     this.woof.setCollideWorldBounds(true);
 
+    // this.woof.add('left', [0], 10, true)
+    // this.woof.add('right', [1], 10, true)
+    // this.woof.add('up', [2], 10, true)
+    // this.woof.add('down', [3], 10, true)
+
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
 
     this.score = 0;
@@ -154,16 +159,21 @@ export default class GameScene extends Phaser.Scene {
 
   moveWoofManager(){
     this.woof.setVelocity(0);
+    // this.woof.play('left')
 
     if(this.cursorKeys.left.isDown){
+      // this.woof.play('left')
       this.woof.setVelocityX(-50);
     }else if(this.cursorKeys.right.isDown){
+      // this.woof.play('right')
       this.woof.setVelocityX(50);
     }
 
     if(this.cursorKeys.up.isDown){
+      // this.woof.play('up')
       this.woof.setVelocityY(-50);
     }else if(this.cursorKeys.down.isDown){
+      // this.woof.play('down')
       this.woof.setVelocityY(50);
     }
   }
