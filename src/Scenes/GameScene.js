@@ -21,6 +21,7 @@ const gameSettings = {
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
+    this.gameOver = false;
   }
 
   preload () {
@@ -38,8 +39,8 @@ export default class GameScene extends Phaser.Scene {
       frameHeight: 16
     });
     this.load.spritesheet('danger', danger, {
-      frameWidth: 64,
-      frameHeight: 64
+      frameWidth: 32,
+      frameHeight: 32
     });
     this.load.spritesheet('woof', woof, {
       frameWidth: 64,
@@ -52,17 +53,9 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create () {
-    // this.physics.startSystem(Phaser.Physics.ARCADE)
-
-    // let bg = this.add.sprite(0, 0, 'background');
     this.bg = this.add.tileSprite(0, 0, config.width, config.height, "background");
     this.bg.setOrigin(0,0);
 
-    // this.woof = this.add.sprite(64, 64, 'woof')
-    // this.ship2 = this.add.sprite(140, 180, 'ship2')
-    // this.dragon1 = this.add.sprite(100, 100, 'dragon')
-    // this.dragon2 = this.add.sprite(32, 32, 'dragon')
-    // this.dragon3 = this.add.sprite(150, 150, 'dragon')
     this.anims.create({
       key: "explode",
       frames: this.anims.generateFrameNumbers("explosion"),
@@ -114,33 +107,47 @@ export default class GameScene extends Phaser.Scene {
     this.powerUps = this.physics.add.group();
     this.dangers = this.physics.add.group();
 
-    var maxObjects = 8;
-    for (var i = 0; i <= maxObjects; i++) {
+    var maxPowers = 8;
+    for (var i = 0; i <= maxPowers; i++) {
       var powerUp = this.physics.add.sprite(16, 16, "power-up");
-      var danger = this.physics.add.sprite(16, 16, "danger");
 
       this.powerUps.add(powerUp);
-      this.dangers.add(danger);
       powerUp.setRandomPosition(0, 0, config.width, config.height);
-      danger.setRandomPosition(0, 0, config.width, config.height);
 
       // set random animation
       if (Math.random() > 0.5) {
         powerUp.play("red");
-        danger.play("green");
       } else {
         powerUp.play("gray");
-        danger.play("blue");
       }
 
       // setVelocity
       powerUp.setVelocity(50, 50);
-      danger.setVelocity(50, 50);
       // 3.2
       powerUp.setCollideWorldBounds(true);
-      danger.setCollideWorldBounds(true);
       // 3.3
       powerUp.setBounce(1);
+    }
+
+    var maxDangers = 4;
+    for (var i = 0; i <= maxDangers; i++) {
+      var danger = this.physics.add.sprite(16, 16, "danger");
+    
+      this.dangers.add(danger);
+      danger.setRandomPosition(0, 0, config.width, config.height);
+    
+      // set random animation
+      if (Math.random() > 0.5) {
+        danger.play("green");
+      } else {
+        danger.play("blue");
+      }
+    
+      // setVelocity
+      danger.setVelocity(50, 50);
+      // 3.2
+      danger.setCollideWorldBounds(true);
+      // 3.3
       danger.setBounce(1);
     }
 
@@ -160,13 +167,8 @@ export default class GameScene extends Phaser.Scene {
     this.cursorKeys = this.input.keyboard.createCursorKeys();
     this.woof.setCollideWorldBounds(true);
 
-    // this.woof.add('left', [0], 10, true)
-    // this.woof.add('right', [1], 10, true)
-    // this.woof.add('up', [2], 10, true)
-    // this.woof.add('down', [3], 10, true)
-
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
-    this.physics.add.overlap(this.woof, this.dangers, this.pickDanger, null, this);
+    this.physics.add.collider(this.woof, this.dangers, this.pickDanger, null, this);
 
     this.score = 0;
     this.scoreLabel = this.add.text(20, 20, "Ships Destroyed", {
@@ -177,60 +179,53 @@ export default class GameScene extends Phaser.Scene {
   }
 
   pickPowerUp(woof, powerUp) {
-    // make it inactive and hide it
     powerUp.disableBody(true, true);
     this.score += 1;
     this.scoreLabel.text = "Ships Destroyed " + this.score;
+    if (this.score === 5) {
+      this.physics.pause();
+      this.woof.setTint(0xf8f8ff)
+      this.gameWonText = this.add.text(400, 300, "You Won Click to see MENU", {
+        font: "25px Arial",
+        fill: "yellow"
+      });
+      this.gameWonText.setOrigin(0.5);
+      this.input.on('pointerdown', () => this.scene.start('Preloader'));
+    }
   }
 
   pickDanger(woof, danger) {
-    // make it inactive and hide it
-    danger.disableBody(true, true);
-    this.score += 1;
-    this.scoreLabel.text = "Ships Destroyed " + this.score;
+    // woof.disableBody(true, true);
+    this.physics.pause();
+    this.woof.setTint(0xff0000)
+    this.gameOver = true;
+    this.gameOverText = this.add.text(400, 300, "Game Over Click to see MENU", {
+      font: "25px Arial",
+      fill: "yellow"
+    });
+    this.gameOverText.setOrigin(0.5);
+    this.input.on('pointerdown', () => this.scene.start('Preloader'))
   }
 
   update() {
-    // this.moveDragon(this.dragon1, 1);
-    // this.moveDragon(this.dragon2, 2);
-    // this.moveDragon(this.dragon3, 3);
-    // this.moveDragon(this.ship2, 3);
     this.moveWoofManager();
     this.bg.tilePositionY -= 0.2;
   }
 
   moveWoofManager(){
     this.woof.setVelocity(0);
-    // this.woof.play('left')
 
     if(this.cursorKeys.left.isDown){
-      // this.woof.play('left')
       this.woof.setVelocityX(-50);
     }else if(this.cursorKeys.right.isDown){
-      // this.woof.play('right')
       this.woof.setVelocityX(50);
     }
 
     if(this.cursorKeys.up.isDown){
-      // this.woof.play('up')
       this.woof.setVelocityY(-50);
     }else if(this.cursorKeys.down.isDown){
-      // this.woof.play('down')
       this.woof.setVelocityY(50);
     }
   }
 
-  moveDragon(dragon, speed) {
-    dragon.y += speed;
-    if (dragon.y > config.height) {
-      this.resetDragonPos(dragon);
-    }
-  }
-
-  resetDragonPos(dragon){
-    dragon.y = 0;
-    
-    var randomX = Phaser.Math.Between(0, config.width);
-    dragon.x = randomX;
-  }
 };
