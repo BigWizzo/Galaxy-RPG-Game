@@ -24,9 +24,9 @@ module.exports = {
       filename: '[name].css',
     }),
     new webpack.DefinePlugin({
-      'CANVAS_RENDERER': JSON.stringify(true),
-      'WEBGL_RENDERER': JSON.stringify(true)
-  })
+      CANVAS_RENDERER: JSON.stringify(true),
+      WEBGL_RENDERER: JSON.stringify(true),
+    }),
   ],
   module: {
     rules: [
@@ -50,9 +50,9 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: [ /\.vert$/, /\.frag$/ ],
-        use: 'raw-loader'
-      }
+        test: [/\.vert$/, /\.frag$/],
+        use: 'raw-loader',
+      },
     ],
   },
   optimization: {
