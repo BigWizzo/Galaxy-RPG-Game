@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
+import config from '../Config/config';
 import { scoreBoard, sortScores } from '../Api/scoreBoard';
 
 export default class Scores extends Phaser.Scene {
@@ -14,7 +15,7 @@ export default class Scores extends Phaser.Scene {
         break;
       }
       this.add.text(
-        game.config.width / 2,
+        config.width / 2,
         70 + 25 * i,
         `${list[i].user}   ${list[i].score}`, {
           fill: '#ffff00',
