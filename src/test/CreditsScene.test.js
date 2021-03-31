@@ -1,6 +1,7 @@
-require('jest-canvas-mock');
 import 'phaser';
 import CreditsScene from '../Scenes/CreditsScene';
+
+require('jest-canvas-mock');
 
 describe('CreditsScene class', () => {
   const myCreditsScene = new CreditsScene();
@@ -8,9 +9,8 @@ describe('CreditsScene class', () => {
   test('CreditsScene is an Object', () => {
     expect(typeof myCreditsScene).toBe('object');
   });
-  
+
   test('CreditsScene is not a function', () => {
     expect(typeof myCreditsScene).not.toBe('function');
   });
-  
 });

@@ -1,22 +1,10 @@
-// import 'phaser';
-// import diamond from '../assets/game/diamond.png';
-// import platform from '../assets/game/platform.png';
-// import sky from '../assets/game/sky.png';
+import Phaser from 'phaser';
 import background from '../assets/game/background.jpg';
 import woof from '../assets/game/woof.png';
-// import dragon from '../assets/game/dragonorrange.png';
-// import ship2 from '../assets/game/ship2.png';
 import power from '../assets/game/power.png';
 import danger from '../assets/game/danger.png';
 import explosion from '../assets/game/explosion.png';
 import config from '../Config/config';
-
-const gameSettings = {
-  playerSpeed: 200,
-  maxPowerups: 2,
-  powerUpVel: 50,
-};
-
 
 export default class GameScene extends Phaser.Scene {
   constructor() {

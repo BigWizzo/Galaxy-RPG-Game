@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import logo from '../assets/logo.png';
 import check from '../assets/ui/blue_boxCheckmark.png';
 import blue1 from '../assets/ui/blue_button02.png';
