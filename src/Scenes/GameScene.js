@@ -96,7 +96,7 @@ export default class GameScene extends Phaser.Scene {
     this.dangers = this.physics.add.group();
 
     const maxPowers = 10;
-    for (var i = 0; i <= maxPowers; i++) {
+    for (let i = 0; i <= maxPowers; i += 1) {
       const powerUp = this.physics.add.sprite(16, 16, 'power-up');
 
       this.powerUps.add(powerUp);
@@ -118,7 +118,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     const maxDangers = 2;
-    for (var i = 0; i <= maxDangers; i++) {
+    for (let i = 0; i <= maxDangers; i += 1) {
       const danger = this.physics.add.sprite(16, 16, 'danger');
 
       this.dangers.add(danger);
@@ -181,7 +181,7 @@ export default class GameScene extends Phaser.Scene {
     }
   }
 
-  pickDanger(woof, danger) {
+  pickDanger() {
     // woof.disableBody(true, true);
     this.physics.pause();
     this.woof.setTint(0xff0000);
