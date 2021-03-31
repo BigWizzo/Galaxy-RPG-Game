@@ -5,6 +5,14 @@ import GameScene from '../Scenes/GameScene';
 describe('GameScene class', () => {
   const myGameScene = new GameScene();
 
+  test('GameScene is an Object', () => {
+    expect(typeof myGameScene).toBe('object');
+  });
+  
+  test('gameScene is not a function', () => {
+    expect(typeof myGameScene).not.toBe('function');
+  });
+
   test('pick points when woof collides with powerUps', () => {
     expect(typeof myGameScene.pickPowerUp).toBe('function');
   });

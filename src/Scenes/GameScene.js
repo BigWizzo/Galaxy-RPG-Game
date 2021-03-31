@@ -129,7 +129,7 @@ export default class GameScene extends Phaser.Scene {
       powerUp.setBounce(1);
     }
 
-    const maxDangers = 3;
+    const maxDangers = 2;
     for (var i = 0; i <= maxDangers; i++) {
       const danger = this.physics.add.sprite(16, 16, 'danger');
 

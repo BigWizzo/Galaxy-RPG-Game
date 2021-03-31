@@ -1,10 +1,11 @@
-const key = 'KWiRgu7V60lb8Bt7Iwoz';
+const key = 'Zl4d7IVkemOTTVg2fUdz';
 const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${key}/scores`;
 
 export const scoreBoard = async () => {
   try {
     const response = await fetch(url);
     const json = await response.json();
+    console.log(json.result);
     return json.result;
   } catch (e) {
     throw Error('Not data found');
@@ -28,6 +29,7 @@ export const setScore = async (user, score) => {
   };
   const response = await fetch(address, settings);
   const answer = await response.json();
+  console.log(answer);
   return answer;
 };
 
