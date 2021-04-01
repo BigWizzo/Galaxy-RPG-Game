@@ -6,9 +6,9 @@
 
 ![screenshot](./screenshot.png)
 
-## Live Demo:
+## Live Demo Link:
 
-[Live Demo Link](https://)
+[https://bigwizzo.github.io/Galaxy-RPG-Game/](https://bigwizzo.github.io/Galaxy-RPG-Game/)
 
 ## :hammer: Built with
 
@@ -43,7 +43,8 @@ When you collide with a power ball.
 
 When you collide with a meteoroid.
 
-- meteoroids are fatal, avoid them: Game Over
+- meteoroids are fatal, avoid them.
+- It's Game Over if thor is hit by a meteoroid.
 
 ## :construction_worker: Getting Started
 
