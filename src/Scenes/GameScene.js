@@ -5,6 +5,7 @@ import power from '../assets/game/power.png';
 import danger from '../assets/game/danger.png';
 import explosion from '../assets/game/explosion.png';
 import config from '../Config/config';
+import { setScore } from '../Api/scoreBoard';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -175,6 +176,7 @@ export default class GameScene extends Phaser.Scene {
     if (window.score === 11) {
       this.physics.pause();
       this.woof.setTint(0xf8f8ff);
+      setScore(window.playerName, window.score);
       this.gameWonText = this.add.text(400, 300, 'You Won Click to see MENU', {
         font: '25px Arial',
         fill: 'yellow',
@@ -189,6 +191,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.pause();
     this.woof.setTint(0xff0000);
     this.gameOver = true;
+    setScore(window.playerName, window.score);
     this.gameOverText = this.add.text(400, 300, 'Game Over Click to see MENU', {
       font: '25px Arial',
       fill: 'yellow',
