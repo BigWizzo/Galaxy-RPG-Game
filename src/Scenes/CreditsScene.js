@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+
 import Phaser from 'phaser';
 import config from '../Config/config';
 
@@ -45,3 +47,4 @@ export default class CreditsScene extends Phaser.Scene {
     });
   }
 }
+/* eslint-enable func-names */

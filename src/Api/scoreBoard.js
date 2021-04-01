@@ -6,7 +6,6 @@ export const scoreBoard = async () => {
   try {
     const response = await fetch(url);
     const json = await response.json();
-    console.log(json.result);
     return json.result;
   } catch (e) {
     throw Error('Not data found');
@@ -30,7 +29,6 @@ export const setScore = async (user, score) => {
   };
   const response = await fetch(address, settings);
   const answer = await response.json();
-  console.log(answer);
   return answer;
 };
 

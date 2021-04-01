@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Mounsters Hunter
+# Galaxy RPG-Game
 
-> Built using JavaScript and Phaser 3, this Game faetures Thor in a mission to save the Galaxy. He has to collide with the enemy power balls in order to destroy them. He is supposed to avoid colliding into the burning meteoroids since they are more powerful than his hammer.
+> Built using JavaScript and Phaser 3, this Game features Thor in a mission to save the Galaxy. He has to collide with the enemy power balls in order to destroy them. He is supposed to avoid colliding into the burning meteoroids since they are more powerful than his hammer.
 
 ![screenshot](./screenshot.png)
 
@@ -16,7 +16,7 @@
 - JavaScript
 - Webpack
 - Linters
-- VS code
+- VS Code
 - Phaser 3
 
 ## Game Functionality
