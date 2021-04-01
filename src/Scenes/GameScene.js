@@ -158,7 +158,8 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
     this.physics.add.collider(this.woof, this.dangers, this.pickDanger, null, this);
 
-    this.score = 0;
+    // this.score = 0;
+    window.score = 0;
     this.scoreLabel = this.add.text(20, 20, 'Ships Destroyed', {
       font: '25px Arial',
       fill: 'yellow',
@@ -167,9 +168,11 @@ export default class GameScene extends Phaser.Scene {
 
   pickPowerUp(woof, powerUp) {
     powerUp.disableBody(true, true);
-    this.score += 1;
-    this.scoreLabel.text = `Ships Destroyed ${this.score}`;
-    if (this.score === 11) {
+    window.score += 1;
+    this.scoreLabel.text = `Ships Destroyed ${window.score}`;
+    console.log(window.score)
+    console.log(window.playerName)
+    if (window.score === 11) {
       this.physics.pause();
       this.woof.setTint(0xf8f8ff);
       this.gameWonText = this.add.text(400, 300, 'You Won Click to see MENU', {
