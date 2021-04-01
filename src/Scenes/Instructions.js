@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
+import config from '../Config/config';
 
 export default class InstructionsScene extends Phaser.Scene {
   constructor() {
@@ -9,10 +10,10 @@ export default class InstructionsScene extends Phaser.Scene {
   create() {
     this.model = this.sys.game.globals.model;
 
-    this.text = this.add.text(100, 50, 'How to play', { fontSize: 30 });
-    this.instructions = this.add.text(50, 110, 'Move around the world with\nthe arrow keys. On battle,\nselect attack action on\nmenu with space bar or left\narrow key. Kill shadows\nand demons to score up.', { fontSize: 20 });
+    this.text = this.add.text(config.width / 2, 50, 'Instructions', { fontSize: 30 });
+    this.instructions = this.add.text(config.width, 110, 'Use the arrow keys\nto move Thor about the galaxy,\nDestroy as many enemy power\nballs as you can. Avoid\ncolliding with the burning\nmeteoroid. Good Luck!', { fontSize: 20 });
 
 
-    this.menuButton = new Button(this, 210, 300, 'blueButton1', 'blueButton2', 'Menu', 'Title');
+    this.menuButton = new Button(this, config.width / 2, 300, 'blueButton1', 'blueButton2', 'Menu', 'Title');
   }
 }

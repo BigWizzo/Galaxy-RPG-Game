@@ -29,17 +29,16 @@ export default class Scores extends Phaser.Scene {
 
   async create() {
     this.add.text(
-      143,
+      config.width / 2,
       25,
-      'Ice & Fire', {
+      'Galaxy', {
         fill: '#fff',
         fontSize: '32px',
         fontFamily: 'Georgias, Times, serif',
       },
     );
-    this.menuButton = new Button(this, 210, 300, 'blueButton1', 'blueButton2', 'Menu', 'Title');
+    this.menuButton = new Button(this, config.width / 2, 300, 'blueButton1', 'blueButton2', 'Menu', 'Title');
     const scores = await scoreBoard();
-    console.log(scores);
     this.displayLeaders(sortScores(scores));
   }
 }
