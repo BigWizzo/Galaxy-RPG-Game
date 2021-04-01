@@ -2,14 +2,13 @@
 
 # Mounsters Hunter
 
-> This is an RPG medieval game where the user is capable to move around the map and find a mounster randomly. The user will have 2 turns using a warrior and a wizard, and the user will have to fight until the mounsters or the Heroes die.
+> Built using JavaScript and Phaser 3, this Game faetures Thor in a mission to save the Galaxy. He has to collide with the enemy power balls in order to destroy them. He is supposed to avoid colliding into the burning meteoroids since they are more powerful than his hammer.
 
-![screenshot](./docs/screenshot1.png)
-![screenshot](./docs/screenshot2.png)
+![screenshot](./screenshot.png)
 
-## :red_circle: Live Demo:
+## Live Demo:
 
-[Live Demo Link](https://monsters-hunter.netlify.app/)
+[Live Demo Link](https://)
 
 ## :hammer: Built with
 
@@ -24,42 +23,39 @@
 
 ### Concept
 
-- Control to the warrior to find monsters around the map.
-- Kill as many monsters as possible.
-- Avoid being killed by the 4 different monsters that exist in the world.
+- Control Thor to fly around in the galaxy.
+- Destroy enemy power balls by colliding into them.
+- Avoid colliding into burning meteoroids.
 
 ### Controls
 
-You need a keyboard to control the Player Ship.
+You need a keyboard to control the Player Thor.
 
 - Press ⬆️ to move up.
 - Press :arrow_down: to move down.
 - Press ➡️ to go right.
 - Press ⬅️ to go left.
 
-When finding a monster.
+When you collide with a power ball.
 
-- Press ⬆️ or :arrow_down: to select the monster you want to attack.
-- Press <kbd>Space</kbd> to attack the monster.
+- Earn 10 points by colliding into a power ball.
+- Win the game by destroying all the power balls.
 
-### Assets
+When you collide with a meteoroid.
 
-| Asset                                                                                                                                                                                     | Description      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| ![Alien space ship](./src/assets/malehero.png) ![Alien space ship](./src/assets/femaleHero.png)                                                                                           | Heroes           |
-| ![Player Space ship](./src/assets/bat.gif)![Alien space ship](./src/assets/ghost.gif) ![Alien space ship](./src/assets/dragonorange.png) ![Alien space ship](./src/assets/dragonblue.png) | Enemies to kill. |
+- meteoroids are fatal, avoid them: Game Over
 
 ## :construction_worker: Getting Started
 
 To get a local copy up and running follow these simple steps:
 
-1. Go to the [repository page](https://github.com/kcotrinam/RPG_game_capstone).
+1. Go to the [repository page](https://github.com/BigWizzo/Galaxy-RPG-Game).
 2. Press the "Code" button and copy the link.
 3. Clone it using git command `git clone <link>`.
 
 ## :construction_worker: How to use?
 
-1. Move to the folder: `cd RPG_game_capstone`.
+1. Move to the folder: `cd Galaxy-RPG-Game`.
 2. run `npm install`.
 3. on your command line run: `npm run dev` (development) or `npm run build` (Production).
 4. start server:
@@ -68,7 +64,7 @@ To get a local copy up and running follow these simple steps:
 
 ## :construction_worker: How to run tests?
 
-1. Move to the folder: `cd RPG_game_capstone`.
+1. Move to the folder: `cd Galaxy-RPG-Game`.
 2. Run `npm run test`.
 
 ## :bust_in_silhouette: Author
@@ -83,7 +79,7 @@ To get a local copy up and running follow these simple steps:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/kcotrinam/RPG_game_capstone/issues).
+Feel free to check the [issues page](https://github.com/BigWizzo/Galaxy-RPG-Game/issues).
 
 ## :muscle: Show your support
 
@@ -94,6 +90,7 @@ Give a ⭐️ if you like this project!
 - [Microverse](https://www.microverse.org/)
 - [Zenva Pty Ltd](https://gamedevacademy.org/how-to-create-a-turn-based-rpg-game-in-phaser-3-part-1/)
 - Stand up team
+- TSEs
 
 ## 📝 License
 

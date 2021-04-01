@@ -137,11 +137,11 @@ export default class GameScene extends Phaser.Scene {
 
   pickPowerUp(woof, powerUp) {
     powerUp.disableBody(true, true);
-    window.score += 1;
+    window.score += 10;
     this.scoreLabel.text = `Ships Destroyed ${window.score}`;
     console.log(window.score)
     console.log(window.playerName)
-    if (window.score === 11) {
+    if (window.score === 110) {
       this.physics.pause();
       this.woof.setTint(0xf8f8ff);
       setScore(window.playerName, window.score);
