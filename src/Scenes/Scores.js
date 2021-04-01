@@ -28,15 +28,16 @@ export default class Scores extends Phaser.Scene {
 
 
   async create() {
-    this.add.text(
+    this.text = this.add.text(
       config.width / 2,
-      25,
+      50,
       'Galaxy', {
         fill: '#fff',
         fontSize: '32px',
         fontFamily: 'Georgias, Times, serif',
       },
     );
+    this.text.setOrigin(0.5);
     this.menuButton = new Button(this, config.width / 2, 300, 'blueButton1', 'blueButton2', 'Menu', 'Title');
     const scores = await scoreBoard();
     this.displayLeaders(sortScores(scores));
