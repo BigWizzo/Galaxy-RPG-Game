@@ -69,11 +69,11 @@ To get a local copy up and running follow these simple steps:
 
 ## :bust_in_silhouette: Author
 
-👤 **Kevin Cotrina**
+👤 **Will Nyamunokora**
 
-- GitHub: [kcotrinam](https://github.com/kcotrinam)
-- Twitter: [@kcotrinam_dev](https://twitter.com/kcotrinam_dev)
-- LinkedIn: [KevinCotrina](https://www.linkedin.com/in/kevincotrina/)
+- Github: [@bigwizzo](https://github.com/bigwizzo)
+- Twitter: [@willnyamunokora](https://twitter.com/willnyamunokora)
+- Linkedin: [@willnyamunokora](https://linkedin.com/in/willnyamunokora)
 
 ## 🤝 :raised_hand: :raised_hand: Contributions
 
@@ -94,4 +94,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](LICENSE) licensed.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.

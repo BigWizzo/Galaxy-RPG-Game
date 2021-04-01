@@ -142,9 +142,9 @@ export default class GameScene extends Phaser.Scene {
     console.log(window.score)
     console.log(window.playerName)
     if (window.score === 110) {
+      setScore(window.playerName, window.score);
       this.physics.pause();
       this.woof.setTint(0xf8f8ff);
-      setScore(window.playerName, window.score);
       this.gameWonText = this.add.text(400, 300, 'You Won Click to see MENU', {
         font: '25px Arial',
         fill: 'yellow',
