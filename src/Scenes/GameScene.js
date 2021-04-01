@@ -14,15 +14,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    // load images
-    // this.load.image('diamond', diamond);
-    // this.load.image('platform', platform);
     this.load.image('background', background);
-    // this.load.image('dragon', dragon);
-    // this.load.spritesheet('ship2', ship2, {
-    // frameWidth: 16,
-    // frameHeight: 16
-    // });
     this.load.spritesheet('power', power, {
       frameWidth: 16,
       frameHeight: 16,
@@ -103,18 +95,14 @@ export default class GameScene extends Phaser.Scene {
       this.powerUps.add(powerUp);
       powerUp.setRandomPosition(0, 0, config.width, config.height);
 
-      // set random animation
       if (Math.random() > 0.5) {
         powerUp.play('red');
       } else {
         powerUp.play('gray');
       }
 
-      // setVelocity
       powerUp.setVelocity(50, 50);
-      // 3.2
       powerUp.setCollideWorldBounds(true);
-      // 3.3
       powerUp.setBounce(1);
     }
 
@@ -125,18 +113,14 @@ export default class GameScene extends Phaser.Scene {
       this.dangers.add(danger);
       danger.setRandomPosition(0, 0, config.width, config.height);
 
-      // set random animation
       if (Math.random() > 0.5) {
         danger.play('green');
       } else {
         danger.play('blue');
       }
 
-      // setVelocity
       danger.setVelocity(50, 50);
-      // 3.2
       danger.setCollideWorldBounds(true);
-      // 3.3
       danger.setBounce(1);
     }
 
@@ -159,7 +143,6 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.woof, this.powerUps, this.pickPowerUp, null, this);
     this.physics.add.collider(this.woof, this.dangers, this.pickDanger, null, this);
 
-    // this.score = 0;
     window.score = 0;
     this.scoreLabel = this.add.text(20, 20, 'Ships Destroyed', {
       font: '25px Arial',
@@ -187,7 +170,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   pickDanger() {
-    // woof.disableBody(true, true);
     this.physics.pause();
     this.woof.setTint(0xff0000);
     this.gameOver = true;
