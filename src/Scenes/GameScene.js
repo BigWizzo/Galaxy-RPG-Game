@@ -73,15 +73,15 @@ export default class GameScene extends Phaser.Scene {
       frameRate: 20,
       repeat: -1,
     });
-    this.anims.create({
-      key: 'blue',
-      frames: this.anims.generateFrameNumbers('danger', {
-        start: 2,
-        end: 3,
-      }),
-      frameRate: 20,
-      repeat: -1,
-    });
+    // this.anims.create({
+      // key: 'blue',
+      // frames: this.anims.generateFrameNumbers('danger', {
+        // start: 2,
+        // end: 3,
+      // }),
+      // frameRate: 20,
+      // repeat: -1,
+    // });
 
     this.physics.world.setBoundsCollision();
 
@@ -112,12 +112,12 @@ export default class GameScene extends Phaser.Scene {
 
       this.dangers.add(danger);
       danger.setRandomPosition(0, 0, config.width, config.height);
-
-      if (Math.random() > 0.5) {
-        danger.play('green');
-      } else {
-        danger.play('blue');
-      }
+      danger.play('green');
+      // if (Math.random() > 0.5) {
+        
+      // } else {
+        // danger.play('blue');
+      // }
 
       danger.setVelocity(50, 50);
       danger.setCollideWorldBounds(true);
