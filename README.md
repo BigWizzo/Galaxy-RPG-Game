@@ -29,7 +29,7 @@
 
 ### Controls
 
-You need a keyboard to control the Player Thor. ![Player Thor](./src/assets/game/thorscreen.png)
+You need a keyboard to control the Player Thor.![Player Thor](./src/assets/game/thorscreen32.png)
 
 - Press ⬆️ to move up.
 - Press :arrow_down: to move down.
@@ -41,7 +41,7 @@ When you collide with a power ball. ![Power Balls](./src/assets/game/power-up.pn
 - Earn 10 points by colliding into a power ball.
 - Win the game by destroying all the power balls.
 
-When you collide with a meteoroid. ![Meteoroid](./src/assets/game/meteoroid64.png)
+When you collide with a meteoroid. ![Meteoroid](./src/assets/game/meteoroid32.png)
 
 - meteoroids are fatal, avoid them.
 - It's Game Over if thor is hit by a meteoroid.
