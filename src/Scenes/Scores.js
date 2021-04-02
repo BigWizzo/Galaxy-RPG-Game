@@ -8,7 +8,6 @@ export default class Scores extends Phaser.Scene {
     super('Scores');
   }
 
-
   displayLeaders(list) {
     for (let i = 1; i < 6; i += 1) {
       if (i >= list.length) {
@@ -25,7 +24,6 @@ export default class Scores extends Phaser.Scene {
       ).setOrigin(0.5);
     }
   }
-
 
   async create() {
     this.text = this.add.text(
