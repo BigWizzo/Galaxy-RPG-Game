@@ -1,49 +1,95 @@
-# Phaser 3 Webpack Project Template
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+# Galaxy RPG-Game
 
-This has been updated for Phaser 3.50.0 version and above.
+> Built using JavaScript and Phaser 3, this Game features Thor in a mission to save the Galaxy. He has to collide with the enemy power balls in order to destroy them. He is supposed to avoid colliding into the burning meteoroids since they are more powerful than his hammer.
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+![screenshot](./screenshot.png)
 
-## Requirements
+## Live Demo Link:
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+[https://bigwizzo.github.io/Galaxy-RPG-Game/](https://bigwizzo.github.io/Galaxy-RPG-Game/)
 
-## Available Commands
+## :hammer: Built with
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+- HTML5
+- JavaScript
+- Webpack
+- Linters
+- VS Code
+- Phaser 3
 
-## Writing Code
+## Game Functionality
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
+### Concept
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
+- Control Thor to fly around in the galaxy.
+- Destroy enemy power balls by colliding into them.
+- Avoid colliding into burning meteoroids.
 
-## Customizing the Template
+### Controls
 
-### Babel
+You need a keyboard to control the Player Thor.![Player Thor](./src/assets/game/thorscreen32.png)
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+- Press ⬆️ to move up.
+- Press :arrow_down: to move down.
+- Press ➡️ to go right.
+- Press ⬅️ to go left.
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+When you collide with a power ball. ![Power Balls](./src/assets/game/power-up.png)
 
-### Webpack
+- Earn 10 points by colliding into a power ball.
+- Win the game by destroying all the power balls.
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+When you collide with a meteoroid. ![Meteoroid](./src/assets/game/meteoroid32.png)
 
-## Deploying Code
+- meteoroids are fatal, avoid them.
+- It's Game Over if thor is hit by a meteoroid.
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
+## :construction_worker: Getting Started
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+To get a local copy up and running follow these simple steps:
+
+1. Go to the [repository page](https://github.com/BigWizzo/Galaxy-RPG-Game).
+2. Press the "Code" button and copy the link.
+3. Clone it using git command `git clone https://github.com/BigWizzo/Galaxy-RPG-Game`.
+4. Move to the folder: `cd Galaxy-RPG-Game`.
+5. run `npm install`.
+6. on your command line run: `npm run dev` (development) or `npm run build` (Production).
+7. start server:
+   [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to visualize the webapp in live version or
+   execute on the command line `server dist index.html 8080 --reload` and enter to your browser to `localhost:8080`.
+
+## :construction_worker: How to run tests
+
+1. Move to the folder: `cd Galaxy-RPG-Game`.
+2. Run `npm run test`.
+
+## :bust_in_silhouette: Author
+
+👤 **Will Nyamunokora**
+
+- Github: [@bigwizzo](https://github.com/bigwizzo)
+- Twitter: [@willnyamunokora](https://twitter.com/willnyamunokora)
+- Linkedin: [@willnyamunokora](https://linkedin.com/in/willnyamunokora)
+
+## 🤝 :raised_hand: :raised_hand: Contributions
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/BigWizzo/Galaxy-RPG-Game/issues).
+
+## :muscle: Show your support
+
+Give a ⭐️ if you like this project!
+
+## :grey_exclamation: Acknowledgment
+
+- [Microverse](https://www.microverse.org/)
+- [Zenva Pty Ltd](https://gamedevacademy.org/how-to-create-a-turn-based-rpg-game-in-phaser-3-part-1/)
+- Stand up team
+- TSEs
+
+## 📝 License
+
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
