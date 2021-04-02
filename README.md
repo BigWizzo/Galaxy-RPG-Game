@@ -52,18 +52,15 @@ To get a local copy up and running follow these simple steps:
 
 1. Go to the [repository page](https://github.com/BigWizzo/Galaxy-RPG-Game).
 2. Press the "Code" button and copy the link.
-3. Clone it using git command `git clone <link>`.
-
-## :construction_worker: How to use?
-
-1. Move to the folder: `cd Galaxy-RPG-Game`.
-2. run `npm install`.
-3. on your command line run: `npm run dev` (development) or `npm run build` (Production).
-4. start server:
+3. Clone it using git command `git clone https://github.com/BigWizzo/Galaxy-RPG-Game`.
+4. Move to the folder: `cd Galaxy-RPG-Game`.
+5. run `npm install`.
+6. on your command line run: `npm run dev` (development) or `npm run build` (Production).
+7. start server:
    4.1 [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to visualize the webapp in live version or
-   4.2 execute on the command line `servor dist index.html 8080 --reload` and enter to your browser to `localhost:8080`.
+   4.2 execute on the command line `server dist index.html 8080 --reload` and enter to your browser to `localhost:8080`.
 
-## :construction_worker: How to run tests?
+## :construction_worker: How to run tests
 
 1. Move to the folder: `cd Galaxy-RPG-Game`.
 2. Run `npm run test`.
