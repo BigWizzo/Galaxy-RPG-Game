@@ -57,8 +57,8 @@ To get a local copy up and running follow these simple steps:
 5. run `npm install`.
 6. on your command line run: `npm run dev` (development) or `npm run build` (Production).
 7. start server:
-   4.1 [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to visualize the webapp in live version or
-   4.2 execute on the command line `server dist index.html 8080 --reload` and enter to your browser to `localhost:8080`.
+   [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to visualize the webapp in live version or
+   execute on the command line `server dist index.html 8080 --reload` and enter to your browser to `localhost:8080`.
 
 ## :construction_worker: How to run tests
 
