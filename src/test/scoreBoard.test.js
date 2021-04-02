@@ -22,7 +22,7 @@ test('sortScores is not an object', () => {
 test('setScore is a function', () => {
   expect(typeof setScore).toBe('function');
 });
-  
+
 test('setScore is not an object', () => {
   expect(typeof setScore).not.toBe('object');
 });

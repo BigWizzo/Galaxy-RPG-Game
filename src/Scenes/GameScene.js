@@ -129,7 +129,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.woof, this.dangers, this.pickDanger, null, this);
 
     window.score = 0;
-    this.scoreLabel = this.add.text(20, 20, 'Ships Destroyed', {
+    this.scoreLabel = this.add.text(20, 20, `Ships Destroyed ${window.score}`, {
       font: '25px Arial',
       fill: 'yellow',
     });
